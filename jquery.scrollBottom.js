@@ -1,5 +1,5 @@
 /*!
- * jquery.scrollBottom.js v1.3 - 17 December, 2012
+ * jquery.scrollBottom.js v1.4 - 17 December, 2012
  * By João Gonçalves (http://goncalvesjoao.github.com)
  * Hosted on https://github.com/goncalvesjoao/jQuery-scrollBottom
  * Licensed under MIT license.
