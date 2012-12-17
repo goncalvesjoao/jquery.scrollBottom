@@ -10,11 +10,17 @@
     init: function(callback, margin_bottom) {
       if (margin_bottom == undefined) margin_bottom = 0;
       return this.each(function() {
+        $(this).data('reached_bottom', false);
         $(this).scroll(function() {
           var container = $(this);
           var container_scrollHeight = (this == window) ? $(document).height() : container[0].scrollHeight;
           if ((container_scrollHeight - container.scrollTop()) <= (container.outerHeight() + margin_bottom)) {
-            container.trigger('scroll_reached_bottom');
+            if (!container.data('reached_bottom')) {
+              container.trigger('scroll_reached_bottom');
+              container.data('reached_bottom', true);
+            }
+          } else {
+            container.data('reached_bottom', false);
           }
         });
         $(this).bind('scroll_reached_bottom', callback);
