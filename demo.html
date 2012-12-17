@@ -10,17 +10,16 @@
   
   <script type="text/javascript">
 		$(document).ready(function() {
-			$("#patients_list").scrollBottom(function() { window.console.log('div end!'); }, 100);
-			$(window).scrollBottom(function() { window.console.log('window end!'); }, 100);
+			$("#patients_list").scrollBottom(function(e) { window.console.log('div end!'); e.stopPropagation(); }, 100);
+			$(window).scrollBottom(function() { window.console.log('window end!'); }, 10);
 		});
 	</script>
-
 
   <div class="main_area  cf" style="padding-top: 15px; padding-bottom: 15px; min-width: auto;">
     <div id="main_container_wrapper">
       <div id="main_container" style="margin-left: 30px;">
         <div class="main_head">
-	<h2>List of Users</h2>
+	<h2 id="title">List of Users</h2>
 </div>
 <div class="main_col" style="width: 100%">
 	<div id="patients_list" class="a_z_list" style="width: 100%">

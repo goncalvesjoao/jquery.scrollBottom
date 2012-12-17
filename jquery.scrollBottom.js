@@ -14,15 +14,16 @@
           var container = $(this);
           var container_scrollHeight = (this == window) ? $(document).height() : container[0].scrollHeight;
           if ((container_scrollHeight - container.scrollTop()) <= (container.outerHeight() + margin_bottom)) {
-            container.trigger('scrollBottom');
+            container.trigger('scroll_reached_bottom');
           }
         });
-        $(this).bind('scrollBottom', callback);
+        $(this).bind('scroll_reached_bottom', callback);
       });
     },
     destroy: function() {
       return this.each(function() {
-        $(this).unbind('scrollBottom');
+        $(this).unbind('scroll_reached_bottom');
+        $(this).unbind('scroll');
       });
     }
   }
