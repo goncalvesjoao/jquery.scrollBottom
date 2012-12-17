@@ -10,12 +10,7 @@
   
   <script type="text/javascript">
 		$(document).ready(function() {
-			$("#patients_list").scroll(function() {
-				var container = $(this);
-				if ((container[0].scrollHeight - container.scrollTop()) < (container.outerHeight() + 50)) {
-					alert('fim!');
-				}
-			});
+			$("#patients_list").scrollBottom(function() { window.console.log('div end!'); });
 		});
 	</script>
 
@@ -28,7 +23,7 @@
 </div>
 <div class="main_col" style="width: 100%">
 	<div id="patients_list" class="a_z_list" style="width: 100%">
-		<a href="http://lvh.me:3000/patients/2/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+		<a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Lisa.jpeg" width="50">
@@ -42,7 +37,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/3/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/James.jpeg" width="50">
@@ -56,7 +51,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/4/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Eric.jpeg" width="50">
@@ -70,7 +65,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/5/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Allison.jpeg" width="50">
@@ -84,7 +79,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/6/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -98,7 +93,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/7/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -112,7 +107,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/8/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -126,7 +121,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/9/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -140,7 +135,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/10/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -154,7 +149,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/11/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -168,7 +163,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/12/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -182,7 +177,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/13/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -196,7 +191,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/14/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -210,7 +205,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/15/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -224,7 +219,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/16/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -238,7 +233,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/17/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -252,7 +247,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/18/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -266,7 +261,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/19/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -280,7 +275,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/20/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
@@ -294,7 +289,7 @@
 			<button type="button" class="button gwt-Button">Choose</button>
 		</div>
 	</div>
-</a><a href="http://lvh.me:3000/patients/21/current_patient" class="patient_cell" data-method="post" rel="nofollow">
+</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
 	<div class="main_info">
 		<div class="big_pic">
 			<img alt="Patient_image" height="50" src="./demo_files/Robert.jpeg" width="50">
