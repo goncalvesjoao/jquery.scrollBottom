@@ -1,5 +1,5 @@
 /*!
- * jquery.scrollBottom.js v1.0 - 17 December, 2012
+ * jquery.scrollBottom.js v1.1 - 17 December, 2012
  * By João Gonçalves (http://goncalvesjoao.github.com)
  * Hosted on https://github.com/goncalvesjoao/jQuery-scrollBottom
  * Licensed under MIT license.
@@ -12,7 +12,8 @@
       return this.each(function() {
         $(this).scroll(function() {
           var container = $(this);
-          if ((container[0].scrollHeight - container.scrollTop()) < (container.outerHeight() + margin_bottom)) {
+          var container_scrollHeight = (this == window) ? $(document).height() : container[0].scrollHeight;
+          if ((container_scrollHeight - container.scrollTop()) <= (container.outerHeight() + margin_bottom)) {
             container.trigger('scrollBottom');
           }
         });
