@@ -23,7 +23,10 @@
             container.data('reached_bottom', false);
           }
         });
-        $(this).bind('scroll_reached_bottom', callback);
+        $(this).bind('scroll_reached_bottom', function(event) {
+          callback(event);
+          event.stopPropagation();
+        });
       });
     },
     destroy: function() {
