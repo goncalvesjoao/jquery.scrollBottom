@@ -1,5 +1,5 @@
 /*!
- * jquery.scrollBottom.js v1.4 - 17 December, 2012
+ * jquery.scrollBottom.js v1.5 - 17 December, 2012
  * By João Gonçalves (http://goncalvesjoao.github.com)
  * Hosted on https://github.com/goncalvesjoao/jQuery-scrollBottom
  * Licensed under MIT license.
@@ -11,22 +11,29 @@
       if (margin_bottom == undefined) margin_bottom = 0;
       return this.each(function() {
         $(this).data('reached_bottom', false);
+        $(this).data('margin_bottom', margin_bottom);
         $(this).scroll(function() {
-          var container = $(this);
-          var container_scrollHeight = (this == window) ? $(document).height() : container[0].scrollHeight;
-          if ((container_scrollHeight - container.scrollTop()) <= (container.outerHeight() + margin_bottom)) {
-            if (!container.data('reached_bottom')) {
-              container.trigger('scroll_reached_bottom');
-              container.data('reached_bottom', true);
-            }
-          } else {
-            container.data('reached_bottom', false);
-          }
+          $(this).scrollBottom('check_bottom', false);
         });
         $(this).bind('scroll_reached_bottom', function(event) {
           callback(event);
           event.stopPropagation();
         });
+      });
+    },
+    check_bottom: function(bypass_validation) {
+      if (bypass_validation == undefined) bypass_validation = true;
+      return this.each(function() {
+        var container = $(this);
+        var container_scrollHeight = (this == window) ? $(document).height() : container[0].scrollHeight;
+        if ((container_scrollHeight - container.scrollTop()) <= (container.outerHeight() + container.data('margin_bottom'))) {
+          if (bypass_validation || !container.data('reached_bottom')) {
+            container.trigger('scroll_reached_bottom');
+            container.data('reached_bottom', true);
+          }
+        } else {
+          container.data('reached_bottom', false);
+        }
       });
     },
     destroy: function() {
