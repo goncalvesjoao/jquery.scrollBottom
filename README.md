@@ -35,3 +35,9 @@ in case you need to trigger the callback, X pixels before the scroll reached the
     }, 100);
   });
 ```
+or
+```javascript
+  $(document).ready(function() {
+    $(window).scrollBottom(function() { alert("window scrollbar have reached the bottom."); });
+  });
+```
