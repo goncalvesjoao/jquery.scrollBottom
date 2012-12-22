@@ -1,5 +1,5 @@
 /*!
- * jquery.scrollBottom.js v1.5 - 18 December, 2012
+ * jquery.scrollBottom.js v1.6 - 22 December, 2012
  * By João Gonçalves (http://goncalvesjoao.github.com)
  * Hosted on https://github.com/goncalvesjoao/jquery.scrollBottom
  * Licensed under MIT license.
@@ -10,12 +10,12 @@
     init: function(callback, margin_bottom) {
       if (margin_bottom == undefined) margin_bottom = 0;
       return this.each(function() {
-        $(this).data('reached_bottom', false);
-        $(this).data('margin_bottom', margin_bottom);
-        $(this).scroll(function() {
-          $(this).scrollBottom('check_bottom', false);
-        });
-        $(this).bind('scroll_reached_bottom', function(event) {
+        var $this = $(this), data = $this.data('scrollBottom');
+        if (data) return $this;
+
+        $this.data('scrollBottom', { reached_bottom: false, margin_bottom: margin_bottom });
+        $this.bind('scroll.scrollBottom', function() { $this.scrollBottom('check_bottom', false); });
+        $this.bind('scroll_reached_bottom', function(event) {
           callback(event);
           event.stopPropagation();
         });
@@ -24,22 +24,26 @@
     check_bottom: function(bypass_validation) {
       if (bypass_validation == undefined) bypass_validation = true;
       return this.each(function() {
-        var container = $(this);
-        var container_scrollHeight = (this == window) ? $(document).height() : container[0].scrollHeight;
-        if ((container_scrollHeight - container.scrollTop()) <= (container.outerHeight() + container.data('margin_bottom'))) {
-          if (bypass_validation || !container.data('reached_bottom')) {
-            container.trigger('scroll_reached_bottom');
-            container.data('reached_bottom', true);
+        var $this = $(this), data = $this.data('scrollBottom');
+        if (!data) return $this;
+
+        var scrollHeight = (this == window) ? $(document).height() : this.scrollHeight;
+        if ((scrollHeight - $this.scrollTop()) <= ($this.outerHeight() + data.margin_bottom)) {
+          if (bypass_validation || !data.reached_bottom) {
+            $this.trigger('scroll_reached_bottom');
+            data.reached_bottom = true;
           }
         } else {
-          container.data('reached_bottom', false);
+          data.reached_bottom = false;
         }
+        $this.data('scrollBottom', data);
       });
     },
     destroy: function() {
       return this.each(function() {
-        $(this).unbind('scroll_reached_bottom');
-        $(this).unbind('scroll');
+        var $this = $(this);
+        $this.unbind('scroll_reached_bottom');
+        $this.unbind('.scrollBottom');
       });
     }
   }
