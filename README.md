@@ -59,7 +59,37 @@ Initializes necessary data and bind events to the target.
       <td>options</td>
       <td>int, Hash, undefined</td>
       <td>0</td>
-      <td>Options that can alter the plugins' behaviour.</td>
+      <td>If `options` is an <b>int</b>, it will defined the value of `margin_bottom` that in turn will define the <b>height</b> at which the scrollbar should fire the `callback`.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### If `options` is a Hash, here is what you can do with it ####
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>margin_bottom</td>
+      <td>int</td>
+      <td>0</td>
+      <td>Height (counting from the bottom up) at where the scrollbar should fire the `callback`.</td>
+    </tr>
+    <tr>
+      <td>constant_check</td>
+      <td>boolean</td>
+      <td>false</td>
+      <td>
+        If <b>false</b> the `callback` will only fire once while the scrollbar is at or bellow the `margin_bottom`, unless the scrollbar goes up again.
+        <br/>
+        If <b>true</b> the `callback` will fire everytime the target's 'scroll' event is triggered.
+      </td>
     </tr>
   </tbody>
 </table>
@@ -100,7 +130,7 @@ Checks if the target's scrollbar has reached the bottom (minus the `margin_botto
       <td>boolean, undefined</td>
       <td>true</td>
       <td>
-        If the scrollbar is at or bellow the `margin_bottom` value and `bypass_validation` is false, the `callback` function will only be executed once (unless `constant_check` is true).
+        If the scrollbar is at or bellow the `margin_bottom` value and `bypass_validation` is <b>false</b>, the `callback` function will only be executed once (unless `constant_check` is <b>true</b>).
       </td>
     </tr>
   </tbody>
