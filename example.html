@@ -1,331 +1,376 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Portal</title>
-  <link href="./example_files/base.css" media="all" rel="stylesheet" type="text/css">
-	<link href="./example_files/style.css" media="all" rel="stylesheet" type="text/css">
-  <!-- <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script> -->
-	<script src="./example_files/jquery-1.8.3.js" type="text/javascript"></script>
-  <script src="./source/javascripts/jquery.scrollBottom.js" type="text/javascript"></script>
-</head>
-<body>
-  
-  <script type="text/javascript">
-  	/***************** EXAMPLE *******************/
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jquery.scrollBottom Example</title>
+
+
+	<!-- ***************** EXAMPLE ******************* -->
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+	<script src="./source/javascripts/jquery.scrollBottom.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		function get_current_hour() {
+			var d = new Date();
+			return d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+		}
+
 		$(document).ready(function() {
-			$("#patients_list").scrollBottom(function() {
-				alert('div end!');
+			$("#doctors_list").scrollBottom(function() {
+				$("#result").html("#doctors_list's scrollbar have reached the 100px near the bottom (" + get_current_hour() + ')').stop().hide().fadeIn('fast');
 			}, 100);
 
 			$(window).scrollBottom(function() {
-				alert('window end!');
-			}, 10);
+				$("#result").html("window scrollbar have reached the bottom. (" + get_current_hour() + ')').stop().hide().fadeIn('fast');
+			});
 		});
-		/***************** /EXAMPLE *******************/
 	</script>
-
-  <div class="main_area  cf" style="padding-top: 15px; padding-bottom: 15px; min-width: auto;">
-    <div id="main_container_wrapper">
-      <div id="main_container" style="margin-left: 30px;">
-        <div class="main_head">
-	<h2 id="title">List of Users</h2>
-</div>
-<div class="main_col" style="width: 100%">
-	<div id="patients_list" class="a_z_list" style="width: 100%">
-		<a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Lisa.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Lisa Cuddy</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/James.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">James Wilson</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Eric.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Eric Foreman</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Allison.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Allison Cameron</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Robert Chase</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Annora, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Antigone, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Antioch, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Apocalypse, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Apollo, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Aquinnah, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Archer, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Ariela, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Arikhai, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Armie, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Arrow, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Arwen, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Breckstin, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Bredin, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a><a href="#" class="patient_cell" data-method="post" rel="nofollow">
-	<div class="main_info">
-		<div class="big_pic">
-			<img alt="Patient_image" height="50" src="./example_files/Robert.jpeg" width="50">
-		</div>
-		<div class="big_txt">
-			<p class="name">Breklyn, House</p>
-			<p> ♂, 30 years</p>
-			<p>+351 999 999 999</p>
-		</div>
-		<div class="patient_actions">
-			<button type="button" class="button gwt-Button">Choose</button>
-		</div>
-	</div>
-</a>
-<div id="load_more_results">
-  <a href="http://lvh.me:3000/patients/endless_index?page=2" data-action="replace_with" data-handler="load_more_results" data-remote="true" data-type="html" id="endless_pagination_link" style="padding: 30px; display: block; text-align:center;">see more results...</a>
-</div>
-	</div>
-
-</div>
-
-    </div>
-    <div id="sidebar_wrapper">   
-      <nav id="sidebar">
-        
-      </nav>
-    </div>
-  </div>
+	<!-- ***************** /EXAMPLE ******************* -->
 
 
-</body></html>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background: #F3F3F3;
+			font-family: 'Titillium Web', sans-serif;
+			font-weight: 300;
+			font-style: normal;
+			line-height: 1;
+			color: #222;
+			position: relative;
+		}
+		.container {
+			border: 1px solid #ccc;
+			margin: 15px 30px;
+			background: white;
+		}
+		.margin_bottom {
+			margin: 30px 30px 100px;
+			text-align: center;
+		}
+		#result {
+			display: none;
+		}
+		h2 {
+			margin: 20px;
+			padding: 0;
+			position: relative;
+			color: #666;
+			font-size: 22px;
+		}
+		#doctors_list {
+			border-top: 1px solid #ccc;
+			height: 406px;
+			overflow: auto;
+		}
+		.main_info {
+			border-bottom: 1px solid #C1C1C1;
+			border-top: 1px solid white;
+			padding: 8px 10px 5px;
+			overflow: hidden;
+		}
+		a.doctor_cell {
+			background: #F3F3F3;
+			display: block;
+		}
+		a.doctor_cell:hover {
+			background: white;
+		}
+		.doctor_actions {
+			float: right;
+			padding: 10px 15px 0 0;
+		}
+		.big_txt {
+			float: left;
+			font-size: 14px;
+		}
+		.big_pic {
+			width: 50px;
+			margin-right: 10px;
+			float: left;
+		}
+		.big_pic img {
+			height: 50px;
+			width: 50px;
+		}
+		.big_txt p.name {
+			font-size: 13px;
+			margin-bottom: 1px;
+			font-weight: bold;
+			color: #101010;
+		}
+		.big_txt p {
+			font-size: 12px;
+			line-height: 1.3;
+			margin: 0;
+			color: #666;
+		}
+		.button {
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+		.button {
+			width: auto;
+			background: #A3DD6B;
+			background: -moz-linear-gradient(top, #A3DD6B 0%, #6CC813 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #A3DD6B), color-stop(100%, #6CC813));
+			background: -webkit-linear-gradient(top, #A3DD6B 0%, #6CC813 100%);
+			background: -o-linear-gradient(top, #A3DD6B 0%, #6CC813 100%);
+			background: -ms-linear-gradient(top, #A3DD6B 0%, #6CC813 100%);
+			background: linear-gradient(to bottom, #A3DD6B 0%, #6CC813 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a3dd6b', endColorstr='#6cc813',GradientType=0 );
+			border: 1px solid #6FA400;
+			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+			-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+			color: white;
+			cursor: pointer;
+			display: inline-block;
+			font-family: inherit;
+			font-size: 14px;
+			text-shadow: 0 -1px #629300;
+			font-weight: bold;
+			line-height: 1;
+			margin: 0;
+			outline: none;
+			padding: 7px 20px 8px;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+		}
+		.button:hover {
+			color: white;
+			background: #A9E076;
+			background: -moz-linear-gradient(top, #A9E076 0%, #7ADF15 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #A9E076), color-stop(100%, #7ADF15));
+			background: -webkit-linear-gradient(top, #A9E076 0%, #7ADF15 100%);
+			background: -o-linear-gradient(top, #A9E076 0%, #7ADF15 100%);
+			background: -ms-linear-gradient(top, #A9E076 0%, #7ADF15 100%);
+			background: linear-gradient(to bottom, #A9E076 0%, #7ADF15 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9e076', endColorstr='#7adf15',GradientType=0 );
+		}
+		a.load_more {
+			color: #2BA6CB;
+			text-decoration: none;
+			line-height: inherit;
+			padding: 30px;
+			display: block;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h2 id="title">List of Doctors</h2>
+
+		<div id="doctors_list">
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/cuddy.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Lisa Cuddy</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/wilson.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">James Wilson</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/foreman.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Eric Foreman</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/cameron.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Allison Cameron</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/chase.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Robert Chase</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<a href="#" class="doctor_cell">
+				<div class="main_info">
+					<div class="big_pic">
+						<img src="http://www.housemd-guide.com/images/house.jpg">
+					</div>
+					<div class="big_txt">
+						<p class="name">Gregory House</p>
+						<p> ♂, 30 years</p>
+						<p>+351 999 999 999</p>
+					</div>
+					<div class="doctor_actions">
+						<button type="button" class="button gwt-Button">Choose</button>
+					</div>
+				</div>
+			</a>
+			<div>
+				<a href="#" class="load_more">see more results...</a>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="margin_bottom">
+		&nbsp;<span id="result"></span>
+	</div>
+
+</body>
+</html>

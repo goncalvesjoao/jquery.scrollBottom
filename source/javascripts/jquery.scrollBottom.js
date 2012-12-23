@@ -1,5 +1,5 @@
 /*!
- * jquery.scrollBottom.js v1.6 - 22 December, 2012
+ * jquery.scrollBottom.js v1.7 - 22 December, 2012
  * By João Gonçalves (http://goncalvesjoao.github.com)
  * Hosted on https://github.com/goncalvesjoao/jquery.scrollBottom
  * Licensed under MIT license.
@@ -7,13 +7,20 @@
 
 (function($){
   var methods = {
-    init: function(callback, margin_bottom) {
-      if (margin_bottom == undefined) margin_bottom = 0;
+    init: function(callback, options) {
       return this.each(function() {
         var $this = $(this), data = $this.data('scrollBottom');
         if (data) return $this;
 
-        $this.data('scrollBottom', { reached_bottom: false, margin_bottom: margin_bottom });
+        var settings = { margin_bottom: 0, constant_check: false };
+        if (typeof options == "number") {
+          settings["margin_bottom"] = options;
+        } else {
+          settings = $.extend(settings, options);
+        }
+        settings["reached_bottom"] = false;
+
+        $this.data('scrollBottom', settings);
         $this.bind('scroll.scrollBottom', function() { $this.scrollBottom('check_bottom', false); });
         $this.bind('scroll_reached_bottom', function(event) {
           callback(event);
@@ -29,7 +36,7 @@
 
         var scrollHeight = (this == window) ? $(document).height() : this.scrollHeight;
         if ((scrollHeight - $this.scrollTop()) <= ($this.outerHeight() + data.margin_bottom)) {
-          if (bypass_validation || !data.reached_bottom) {
+          if (data.constant_check || bypass_validation || !data.reached_bottom) {
             $this.trigger('scroll_reached_bottom');
             data.reached_bottom = true;
           }
@@ -44,6 +51,7 @@
         var $this = $(this);
         $this.unbind('scroll_reached_bottom');
         $this.unbind('.scrollBottom');
+        $this.removeData('scrollBottom');
       });
     }
   }
