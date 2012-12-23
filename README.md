@@ -53,13 +53,13 @@ Initializes necessary data and bind events to the target.
       <td>callback</td>
       <td>function</td>
       <td>undefined</td>
-      <td>...</td>
+      <td>Function with the code that you want to execute when the target's scrollbar reaches the bottom.</td>
     </tr>
     <tr>
       <td>options</td>
       <td>int, Hash, undefined</td>
       <td>0</td>
-      <td>...</td>
+      <td>Options that can alter the plugins' behaviour.</td>
     </tr>
   </tbody>
 </table>
@@ -99,7 +99,9 @@ Checks if the target's scrollbar has reached the bottom (minus the `margin_botto
       <td>bypass_validation</td>
       <td>boolean, undefined</td>
       <td>true</td>
-      <td>...</td>
+      <td>
+        If the scrollbar is at or bellow the `margin_bottom` value and `bypass_validation` is false, the `callback` function will only be executed once (unless `constant_check` is true).
+      </td>
     </tr>
   </tbody>
 </table>
