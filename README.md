@@ -36,7 +36,7 @@ or
 ## Methods
 
 ### `init` method ###
-Initializes necessary data and bind events to the target element.
+Initializes necessary data and bind events to the target.
 
 #### Params ####
 <table>
@@ -71,7 +71,7 @@ $("#doctors_list").scrollBottom(function() { ... }, 50);
 ```javascript
 $("#doctors_list").scrollBottom(function() { ... }, { margin_bottom: 50, constant_check: true });
 ```
-**WARNING:** This last example will trigger the `callback` multiple times, due to the fact that the callback function will be executed everytime the **scroll** event for the *#doctors_list* is triggered. This is why the default value of the **constant_check** option is set to **false**.
+**WARNING:** This last example will trigger the `callback` multiple times, due to the fact that it is binded to the **scroll** event of *#doctors_list*. This is why the default value of the **constant_check** option is set to **false**.
 
 <br/>
 **NOTE:**
@@ -83,7 +83,7 @@ $("#doctors_list").scrollBottom('init', function() { ... });
 
 <br/>
 ### `check_bottom` method ###
-Checks if the target element's scrollbar has reached the bottom (minus the `margin_bottom`) and triggers the `callback` set by the method `init`.
+Checks if the target's scrollbar has reached the bottom (minus the `margin_bottom`) and triggers the `callback` set by the method `init`.
 
 #### Params ####
 <table>
@@ -113,7 +113,7 @@ In case you need to manually check if the target's scrollbar is at the bottom an
 
 <br/>
 ### `destroy` method ###
-Removes all data and bind events attached to the target element.
+Removes all data and bind events attached to the target.
 
 #### Example ####
 ```javascript
