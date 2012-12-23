@@ -7,12 +7,14 @@ In fact, this plugin was made to be used with [rails-ajax-handler](https://githu
 
 <br/>
 ## Instalation
-Include the **source/javascripts/jquery.scrollBottom.js** in your code.
-<br/>
-PS: *This script depends on jquery, so make sure to also include it.*
+You just need to include **jquery** and **jquery.scrollBottom.js** in your code, how you do it, is up to you.
+```html
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+  <script src="/assets/javascripts/jquery.scrollBottom.js" type="text/javascript"></script>
+```
 
 <br/>
-## Examples
+## Quick Example
 ```html
   <div id="doctors_list" style="height: 200px; overflow:auto;">
     ...
@@ -21,65 +23,22 @@ PS: *This script depends on jquery, so make sure to also include it.*
   </div>
 ```
 ```javascript
-  $(document).ready(function() {
-    $("#doctors_list").scrollBottom(function() {
-  	  alert("#doctors_list's scrollbar have reached the 100px near the bottom.");
-    }, 100);
-  });
+  $("#doctors_list").scrollBottom(function() {
+    alert("#doctors_list's scrollbar have reached the 100px near the bottom.");
+  }, 100);
 ```
 or
 ```javascript
-  $(document).ready(function() {
-    $(window).scrollBottom(function() { alert("window scrollbar have reached the bottom."); });
-  });
+  $(window).scrollBottom(function() { alert("window scrollbar have reached the bottom."); });
 ```
-or even
-```javascript
-  $(document).ready(function() {
-    $("#doctors_list").scrollBottom(function() {
-      alert("#doctors_list's scrollbar have reached the 150px near the bottom (repeated and constant check).");
-    }, { margin_bottom: 150, constant_check: true });
-  });
-```
-WARNING: This last example will launch multiple alert messages, due to the fact that the callback function will be executed everytime the **scroll** event for the *#doctors_list* is triggered.
-
-This is why the default value of the **constant_check** option is set to **false**.
 
 <br/>
 ## Methods
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Params</th>
-      <th>Return</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>init</td>
-      <td>callback, options</td>
-      <td>this</td>
-      <td>Initializes necessary data and bind events to the target element.</td>
-    </tr>
-    <tr>
-      <td>check_bottom</td>
-      <td>bypass_validation</td>
-      <td>this</td>
-      <td>Checks if the target element's scrollbar has reached the bottom (minus the `margin_bottom`) and triggers the `callback` set by the method `init`.<br/></td>
-    </tr>
-    <tr>
-      <td>destroy</td>
-      <td>null</td>
-      <td>this</td>
-      <td>Removes all data and bind events attached to the target element.</td>
-    </tr>
-  </tbody>
-</table>
 
-<br/>
-## `init` params
+### `init` method ###
+Initializes necessary data and bind events to the target element.
+
+#### Params ####
 <table>
   <thead>
     <tr>
@@ -104,35 +63,29 @@ This is why the default value of the **constant_check** option is set to **false
     </tr>
   </tbody>
 </table>
-<br/>
-### When `options` is a Hash ###
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>margin_bottom</td>
-      <td>int</td>
-      <td>0</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <td>constant_check</td>
-      <td>boolean</td>
-      <td>false</td>
-      <td>...</td>
-    </tr>
-  </tbody>
-</table>
+
+#### Examples ####
+```javascript
+$("#doctors_list").scrollBottom(function() { ... }, 50);
+```
+```javascript
+$("#doctors_list").scrollBottom(function() { ... }, { margin_bottom: 50, constant_check: true });
+```
+**WARNING:** This last example will trigger the `callback` multiple times, due to the fact that the callback function will be executed everytime the **scroll** event for the *#doctors_list* is triggered. This is why the default value of the **constant_check** option is set to **false**.
 
 <br/>
-## `check_bottom` params
+**NOTE:**
+```javascript
+$("#doctors_list").scrollBottom(function() { ... });
+//is the same has
+$("#doctors_list").scrollBottom('init', function() { ... });
+```
+
+<br/>
+### `check_bottom` method ###
+Checks if the target element's scrollbar has reached the bottom (minus the `margin_bottom`) and triggers the `callback` set by the method `init`.
+
+#### Params ####
 <table>
   <thead>
     <tr>
@@ -151,3 +104,18 @@ This is why the default value of the **constant_check** option is set to **false
     </tr>
   </tbody>
 </table>
+
+#### Example ####
+```javascript
+$("#doctors_list").scrollBottom('check_bottom');
+```
+In case you need to manually check if the target's scrollbar is at the bottom and trigger your `callback`.
+
+<br/>
+### `destroy` method ###
+Removes all data and bind events attached to the target element.
+
+#### Example ####
+```javascript
+$("#doctors_list").scrollBottom('destroy');
+```
