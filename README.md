@@ -73,11 +73,10 @@ $("#doctors_list").scrollBottom(function() { ... }, { margin_bottom: 50, constan
 ```
 **WARNING:** This last example will trigger the `callback` multiple times, due to the fact that it is binded to the **scroll** event of *#doctors_list*. This is why the default value of the **constant_check** option is set to **false**.
 
-<br/>
 **NOTE:**
 ```javascript
 $("#doctors_list").scrollBottom(function() { ... });
-//is the same has
+//is the same as
 $("#doctors_list").scrollBottom('init', function() { ... });
 ```
 
