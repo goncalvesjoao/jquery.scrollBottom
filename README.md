@@ -1,5 +1,5 @@
 #jQuery-scrollBottom v1.7 - 23 December, 2012
-jQuery plugin that detects and triggers an event when the browser's window, or an html element's scrollbar have reached the bottom (or a certain bottom margin).
+jQuery plugin that detects and triggers a callback when the target's scrollbar have reached the bottom (or a certain bottom margin).
 
 ### Typically used for endless pagination.
 
